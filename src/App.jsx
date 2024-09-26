@@ -5,21 +5,7 @@ import Home from './views/Home';
 import NoPage from './views/NoPage';
 import Login from './views/Login';
 import CardapioYupFormik from './views/CardapioYupFormik';
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<Layout />}>
-//           <Route index element={<Home />} />
-//           <Route path="cardapio" element={<CardapioYupFormik />} />
-//           <Route path="login" element={<Login />} />
-//           <Route path="*" element={<NoPage />} />
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
+import ClienteCadastro from './views/ClienteCadastro';
 
 const router = createBrowserRouter([{
   path: "/",
@@ -38,6 +24,10 @@ const router = createBrowserRouter([{
         path: "login",
         element: <Login />,
       },
+      {
+        path: "cliente",
+        element: <ClienteCadastro/>,
+      }
     ]
 }])
 
