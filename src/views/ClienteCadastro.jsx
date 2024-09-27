@@ -23,11 +23,11 @@ const ClienteCadastro = () => {
     nome: " ",
     email: " ",
     nascimento: " ",
-    cep: " "
+    cep: " ",
   }
   
   useEffect(() => {
-    fetch('http://localhost:3000/clientes', { method: 'GET' })
+    fetch('http://localhost:3000/clientes')
       .then((res) => {
         res.json().then((data) => {
           setClientes([...data]);
@@ -71,7 +71,7 @@ const ClienteCadastro = () => {
   return (
     <>
       <Button className="m-2" variant="primary" onClick={handleShow}>
-        +
+        Adicionar cliente
       </Button>
 
       <ClienteCadastroTable clientes={clientes}></ClienteCadastroTable>
@@ -133,7 +133,7 @@ const ClienteCadastro = () => {
               Fechar
             </Button>
             <Button variant="primary" type="submit">
-              Salvar
+              Salvar Cliente
             </Button>
           </Modal.Footer>
         </Form>
@@ -142,4 +142,4 @@ const ClienteCadastro = () => {
   );
 }
 
-export default ClienteCadastro
+export default ClienteCadastro;

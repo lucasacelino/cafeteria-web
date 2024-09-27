@@ -27,8 +27,8 @@ const ClienteCadastroTable = ({clientes = []}) => {
             );
           })}
         </tbody>
-      </Table>
-    );
+    </Table>
+  );
 };
 
 ClienteCadastroTable.propTypes = {
