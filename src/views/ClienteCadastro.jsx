@@ -19,7 +19,7 @@ const ClienteCadastro = () => {
 
   const handleShow = () => setShow(!show);
 
-  let formDataClintes = {
+  let formDataClientes = {
     nome: " ",
     email: " ",
     nascimento: " ",
@@ -27,8 +27,7 @@ const ClienteCadastro = () => {
   }
   
   useEffect(() => {
-    console.log('Carregando produtos!');
-    fetch('http://localhost:3000/produtos', { method: 'GET' })
+    fetch('http://localhost:3000/clientes', { method: 'GET' })
       .then((res) => {
         res.json().then((data) => {
           setClientes([...data]);
@@ -44,7 +43,7 @@ const ClienteCadastro = () => {
   const handleSubmit = (values) => {
     let dadosNovoCliente = { ...values };
 
-    fetch('http://localhost:3000/produtos', {
+    fetch('http://localhost:3000/clientes', {
       method: 'POST',
       body: JSON.stringify(dadosNovoCliente),
       headers: {
@@ -52,19 +51,19 @@ const ClienteCadastro = () => {
       },
     })
       .then((response) => {
-        console.log('Cadastro efetuado com sucesso!');
+        console.log('Cliente Cadastrado com sucesso!');
 
         setClientes([...clientes, dadosNovoCliente]);
 
         setShow(false);
       })
       .catch((error) => {
-        console.log('Problemas a vista!');
+        console.log('Não foi possivel cadastrar');
       });
   };
 
   const formik = useFormik({
-    initialValues: formDataClintes,
+    initialValues: formDataClientes,
     validationSchema: schema,
     onSubmit: handleSubmit,
   });
@@ -92,7 +91,6 @@ const ClienteCadastro = () => {
                 placeholder="Digite o título"
                 name="titulo"
               />
-
               <span>{formik.errors.nome}</span>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -107,7 +105,7 @@ const ClienteCadastro = () => {
               <span>{formik.errors.email}</span>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label> Data de Nascimento</Form.Label>
+              <Form.Label>Data de Nascimento</Form.Label>
               <Form.Control
                 onChange={formik.handleChange}
                 value={formik.values.nascimento}
