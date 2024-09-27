@@ -6,6 +6,7 @@ const ClienteCadastroTable = ({clientes = []}) => {
     <Table striped bordered hover>
       <thead>
         <tr>
+          <th>Id</th>
           <th>Nome</th>
           <th>E-mail</th>
           <th>Nascimento</th>
@@ -13,13 +14,14 @@ const ClienteCadastroTable = ({clientes = []}) => {
         </tr>
         </thead>
         <tbody>
-          {clientes.map((produto, i) => {
+          {clientes.map((cliente, i) => {
             return (
               <tr key={i}>
-                <td>{produto.nome}</td>
-                <td>{produto.email}</td>
-                <td>{produto.nascimento}</td>
-                <td>{produto.cep}</td>
+                <td>{cliente.id}</td>
+                <td>{cliente.nome}</td>
+                <td>{cliente.email}</td>
+                <td>{cliente.nascimento}</td>
+                <td>{cliente.cep}</td>
               </tr>
             );
           })}
