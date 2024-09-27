@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react'
 import { Table } from 'react-bootstrap';
 
@@ -29,5 +30,10 @@ const ClienteCadastroTable = ({clientes = []}) => {
       </Table>
     );
 };
+
+ClienteCadastroTable.propTypes = {
+  clientes: PropTypes.array,
+};
+
 
 export default ClienteCadastroTable;

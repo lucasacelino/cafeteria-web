@@ -9,7 +9,7 @@ const ClienteCadastro = () => {
   const schema = Yup.object().shape({
     nome: Yup.string().trim().min(15).max(60).required(),
     email: Yup.string().email().required(),
-    dataNascimento: Yup.date().required(),
+    nascimento: Yup.date().required(),
     cep: Yup.string().min(8).required()
   })
 
@@ -37,7 +37,7 @@ const ClienteCadastro = () => {
   }, []);
 
   useEffect(() => {
-    console.log('Produto adicionado!');
+    console.log('Cliente adicionado!');
   }, [clientes]);
 
   const handleSubmit = (values) => {
@@ -86,7 +86,7 @@ const ClienteCadastro = () => {
               <Form.Label>Nome</Form.Label>
               <Form.Control
                 onChange={formik.handleChange}
-                value={formik.values.nome}
+                // value={formik.values.nome}
                 type="text"
                 placeholder="Digite o título"
                 name="titulo"
@@ -97,7 +97,7 @@ const ClienteCadastro = () => {
               <Form.Label>E-mail</Form.Label>
               <Form.Control
                 onChange={formik.handleChange}
-                value={formik.values.email}
+                // value={formik.values.email}
                 type="text"
                 placeholder="Digite a descrição"
                 name="descricao"
@@ -108,7 +108,7 @@ const ClienteCadastro = () => {
               <Form.Label>Data de Nascimento</Form.Label>
               <Form.Control
                 onChange={formik.handleChange}
-                value={formik.values.nascimento}
+                // value={formik.values.nascimento}
                 type="text"
                 placeholder="Digite o valor"
                 name="valor"
@@ -120,7 +120,7 @@ const ClienteCadastro = () => {
               <Form.Label>CEP</Form.Label>
               <Form.Control
                 onChange={formik.handleChange}
-                value={formik.values.cep}
+                // value={formik.values.cep}
                 type="text"
                 placeholder="Digite o endereço da imagem."
                 name="imagemUrl"
